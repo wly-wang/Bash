@@ -1,13 +1,13 @@
 #!/bin/bash
-
+#This script must be ran on one of the uboonegpvm
 #Arguments: run, subrun, event
 
 ROOT_FILES_DIR="/pnfs/uboone/persistent/users/jiaoyang/for_William/muons_reco2"
 
 echo "Run number: ${1}.${2}, Event Number: ${3}"
 
-#for FILE in ${ROOT_FILES_DIR}/*.root 
-for FILE in ${ROOT_FILES_DIR}/muons_artrootfile_semi_analytical_100cm_reco2_1.root
+for FILE in ${ROOT_FILES_DIR}/*.root 
+#for FILE in ${ROOT_FILES_DIR}/muons_artrootfile_semi_analytical_100cm_reco2_1.root #this line is for testing only, so doesn't loop through all files.
 do
         root -b -l ${FILE} <<-TEST                       
         TTree *Events = (TTree*)_file0->Get("Events");
